@@ -3,7 +3,6 @@ package com.spring.boot.dto;
 public class ModuleDto {
 	private Long id;
 	private String name;
-	private long project_id;
 
 	public Long getId() {
 		return id;
@@ -21,13 +20,4 @@ public class ModuleDto {
 		this.name = name;
 	}
 
-	public long getProject_id() {
-		return project_id;
-	}
-
-	public void setProject_id(long project_id) {
-		this.project_id = project_id;
-	}
-
-	
 }
