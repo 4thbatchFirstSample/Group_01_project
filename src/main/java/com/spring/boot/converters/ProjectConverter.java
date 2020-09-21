@@ -10,35 +10,54 @@ import com.spring.boot.entities.Project;
 
 @Service
 public class ProjectConverter {
-	// projectDto to Project Entity Converter
 	public static Project projectDtoToProject(ProjectDto projectDto) {
 		Project project = new Project();
 		if (projectDto != null) {
 			project.setId(projectDto.getId());
 			project.setName(projectDto.getName());
-			project.setAbbreviation(projectDto.getAbbreviation());
+			project.setDuration(projectDto.getDuration());
+			project.setStatus(projectDto.getStatus());
+			project.setProjecttype(projectDto.getProjecttype());
+			project.setStartdate(projectDto.getStartdate());
+			project.setEnddate(projectDto.getEnddate());
+
 			return project;
 		}
 		return null;
+
 	}
 
-	// Project to ProjectDto list converter
-
-	public static List<ProjectDto> projectToProjectDto(List<Project> projectList) {
+	public static List<ProjectDto> ProjectToProjectDto(List<Project> projectlist) {
 		List<ProjectDto> listProjectDto = new ArrayList<>();
-		if (projectList != null) {
-			for (Project project : projectList) {
+		if (projectlist != null) {
+			for (Project project : projectlist) {
 				ProjectDto projectDto = new ProjectDto();
 				projectDto.setId(project.getId());
 				projectDto.setName(project.getName());
-				projectDto.setAbbreviation(project.getAbbreviation());
+				projectDto.setDuration(project.getDuration());
+				projectDto.setStatus(project.getStatus());
+				projectDto.setProjecttype(project.getProjecttype());
+				projectDto.setStartdate(project.getStartdate());
+				projectDto.setEnddate(project.getEnddate());
 
 				listProjectDto.add(projectDto);
 			}
 			return listProjectDto;
 		}
 		return null;
+	}
 
+	public static ProjectDto ProjectToProjectDto(Project project) {
+		ProjectDto projectDto = new ProjectDto();
+		projectDto.setId(project.getId());
+		projectDto.setName(project.getName());
+		projectDto.setDuration(project.getDuration());
+		projectDto.setStatus(project.getStatus());
+		projectDto.setProjecttype(project.getProjecttype());
+		projectDto.setStartdate(project.getStartdate());
+		projectDto.setEnddate(project.getEnddate());
+
+		return projectDto;
 	}
 
 }
