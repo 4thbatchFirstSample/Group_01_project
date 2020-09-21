@@ -26,7 +26,7 @@ public class DefectConveter {
 			defect.setSeverity(defectDto.getSeverity());
 			defect.setPriority(defectDto.getPriority());
 			defect.setAssignTo(defectDto.getAssignTo());
-			defect.setSupModuleId(defectDto.getSubModuleId());
+			defect.setSubModuleId(defectDto.getSubModuleId());
 			return defect;
 		}
 		return null;
@@ -48,11 +48,34 @@ public class DefectConveter {
 				defectDto.setSeverity(defect.getSeverity());
 				defectDto.setPriority(defect.getPriority());
 				defectDto.setAssignTo(defect.getAssignTo());
-				defectDto.setSubModuleId(defect.getSupModuleId());
+				defectDto.setSubModuleId(defect.getSubModuleId());
+				defectDtoList.add(defectDto);
 			}
 			return defectDtoList;
 		}
 		return null;
 
 	}
+
+	public static DefectDto defectToDefectDtoId(Defect defect) {
+		DefectDto defectDto = new DefectDto();
+		if (defect != null) {
+			defectDto.setId(defect.getId());
+			defectDto.setName(defect.getName());
+			defectDto.setCreatDate(defect.getCreatDate());
+			defectDto.setEnteredDate(defect.getEnteredDate());
+			defectDto.setUpdatedDate(defect.getUpdatedDate());
+			defectDto.setDescription(defect.getDescription());
+			defectDto.setStatus(defect.getStatus());
+			defectDto.setCommand(defect.getCommand());
+			defectDto.setSeverity(defect.getSeverity());
+			defectDto.setPriority(defect.getPriority());
+			defectDto.setAssignTo(defect.getAssignTo());
+			defectDto.setSubModuleId(defect.getSubModuleId());
+
+			return defectDto;
+		}
+		return null;
+	}
+
 }

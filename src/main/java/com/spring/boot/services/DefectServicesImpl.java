@@ -1,7 +1,6 @@
 package com.spring.boot.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,8 +25,8 @@ public class DefectServicesImpl implements DefectServices {
 	}
 
 	@Override
-	public Optional<Defect> getByIdDefect(Long id) {
-		return defectRepository.findById(id);
+	public Defect getByIdDefect(Long id) {
+		return defectRepository.findById(id).get();
 	}
 
 	@Override

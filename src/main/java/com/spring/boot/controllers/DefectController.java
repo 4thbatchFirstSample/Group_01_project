@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.boot.converters.DefectConveter;
@@ -16,6 +17,7 @@ import com.spring.boot.dto.DefectDto;
 import com.spring.boot.services.DefectServices;
 
 @RestController
+@RequestMapping("/api/v2")
 public class DefectController {
 	@Autowired
 	private DefectServices defectServices;
@@ -28,12 +30,13 @@ public class DefectController {
 
 	@GetMapping(value = "/defect")
 	public ResponseEntity<Object> getDefect() {
-		return new ResponseEntity<Object>(defectServices.getDefect(), HttpStatus.OK);
+		return new ResponseEntity<Object>(DefectConveter.defectToDefectDto(defectServices.getDefect()), HttpStatus.OK);
 	}
 
 	@GetMapping(value = "/defect/{id}")
 	public ResponseEntity<Object> getByIdDefec(@PathVariable Long id) {
-		return new ResponseEntity<Object>(defectServices.getByIdDefect(id), HttpStatus.FOUND);
+		return new ResponseEntity<Object>(DefectConveter.defectToDefectDtoId(defectServices.getByIdDefect(id)),
+				HttpStatus.FOUND);
 	}
 
 	@DeleteMapping(value = "/defect/{id}")

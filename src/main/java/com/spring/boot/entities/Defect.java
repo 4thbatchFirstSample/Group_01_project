@@ -27,7 +27,7 @@ public class Defect {
 	private String severity;
 	private String priority;
 	private String assignTo;
-	private long supModuleId;
+	private long subModuleId;
 	
 
 	public Long getId() {
@@ -118,12 +118,12 @@ public class Defect {
 		this.assignTo = assignTo;
 	}
 
-	public long getSupModuleId() {
-		return supModuleId;
+	public long getSubModuleId() {
+		return subModuleId;
 	}
 
-	public void setSupModuleId(long supModuleId) {
-		this.supModuleId = supModuleId;
+	public void setSubModuleId(long subModuleId) {
+		this.subModuleId = subModuleId;
 	}
 
 }
