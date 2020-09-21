@@ -12,46 +12,54 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spring.boot.converters.ProjectConverter;
-import com.spring.boot.dto.ProjectDto;
-import com.spring.boot.services.ProjectService;
+import com.spring.boot.converters.DesignConverter;
+import com.spring.boot.dto.DesignDto;
+
+import com.spring.boot.services.DesignService;
 
 @RestController
 @RequestMapping(value = "api/v2")
-public class ProjectController {
-
+public class DesignControllers {
 	@Autowired
-	private ProjectService projectService;
+	private DesignService designService;
 
 	@PostMapping(value = "/project")
-	public ResponseEntity<Object> addData(@RequestBody ProjectDto projectDto) {
-		projectService.save(ProjectConverter.projectDtoToProject(projectDto));
+	public ResponseEntity<Object>addData(@RequestBody DesignDto designDto) {
+		designService.save(DesignConverter.designDtoToDesign(designDto));
 		return new ResponseEntity<Object>("added successfully", HttpStatus.CREATED);
+
 	}
 
 	@GetMapping(value = "/project")
-	public ResponseEntity<Object> listdata() {
-		return new ResponseEntity<Object>(ProjectConverter.ProjectToProjectDto(projectService.listData()),
-				HttpStatus.OK);
+	public ResponseEntity<Object>listdata(){
+		designService.listData();
+		return new ResponseEntity<Object>(designService.listData(),HttpStatus.OK) ;
+	
+		
+
 	}
 
 	@GetMapping(value = "/project/{id}")
-	public ResponseEntity<Object> getbyid(@PathVariable long id) {
-		return new ResponseEntity<Object>(ProjectConverter.ProjectToProjectDto(projectService.Getbyid(id)),
-				HttpStatus.FOUND);
+	public ResponseEntity<Object>getbyid(@PathVariable long id){
+		designService.Getbyid(id);
+		return new ResponseEntity<Object>(designService.Getbyid(id),HttpStatus.FOUND);
+		
 	}
+	   
 
 	@DeleteMapping(value = "/project/{id}")
 	public ResponseEntity<Object> deletebyid(@PathVariable long id) {
-		projectService.delete(id);
-		return new ResponseEntity<Object>("deleted successfully", HttpStatus.OK);
+		designService.delete(id);
+		return new ResponseEntity<Object>("deleted successfully",HttpStatus.OK);
 
 	}
+	
 
 	@PutMapping(value = "/project")
-	public ResponseEntity<Object> updateid(@RequestBody ProjectDto projectDto) {
-		projectService.update(ProjectConverter.projectDtoToProject(projectDto));
-		return new ResponseEntity<Object>("updated Successfully", HttpStatus.CREATED);
+	public ResponseEntity<Object>updateid(@RequestBody DesignDto designDto) {
+		designService.update(DesignConverter.designDtoToDesign(designDto));
+		return new ResponseEntity<Object>( "updated Successfully", HttpStatus.CREATED);
 	}
-
+	
 }
+
