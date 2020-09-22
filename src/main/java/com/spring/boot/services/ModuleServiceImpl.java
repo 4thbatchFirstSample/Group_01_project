@@ -37,6 +37,11 @@ public class ModuleServiceImpl implements ModuleService {
 	public void updateModule(Module module) {
 		moduleRepository.save(module);
 	}
+
+	@Override
+	public List<Module> getAllModuleByProjectId(Long projectId) {
+		return moduleRepository.findByProjectId(projectId);
+	}
 	
 }
 
