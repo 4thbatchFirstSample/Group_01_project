@@ -7,17 +7,23 @@ import org.springframework.stereotype.Service;
 
 import com.spring.boot.dto.SubmoduleDto;
 import com.spring.boot.entities.Submodule;
+import com.spring.boot.entities.User;
+import com.spring.boot.entities.Module;
 
 @Service
 public class SubmoduleConverters {
 	// SubmoduleDto to Submodule Entity Converter
 	public static Submodule SubmoduleDtoToSubmodule(SubmoduleDto submoduleDto) {
 		Submodule submodule = new Submodule();
+		Module module = new Module();
+    	User user = new User();
 		if (submoduleDto != null) {
 			submodule.setId(submoduleDto.getId());
-			submodule.setModuleId(submoduleDto.getModuleId());
 			submodule.setName(submoduleDto.getName());
-			submodule.setUserId(submoduleDto.getUserId());
+			module.setId(submoduleDto.getModuleId());
+			user.setId(submoduleDto.getUserId());
+			submodule.setModule(module);
+			submodule.setUser(user);
 			return submodule;
 		}
 		return null;
@@ -31,9 +37,10 @@ public class SubmoduleConverters {
 			for (Submodule submodule : submodulelist) {
 				SubmoduleDto submoduleDto = new SubmoduleDto();
 				submoduleDto.setId(submodule.getId());
-				submoduleDto.setModuleId(submodule.getModuleId());
+			    submoduleDto.setModuleId(submodule.getModule().getId());
 				submoduleDto.setName(submodule.getName());
-				submoduleDto.setUserId(submodule.getUserId());
+				submoduleDto.setUserId(submodule.getUser().getId());
+				
 
 				listSubmoduleDto.add(submoduleDto);
 			}
@@ -47,9 +54,9 @@ public class SubmoduleConverters {
 		SubmoduleDto submoduleDto = new SubmoduleDto();
 		if (submodule != null) {
 			submoduleDto.setId(submodule.getId());
-			submoduleDto.setModuleId(submodule.getModuleId());
+		    submoduleDto.setModuleId(submodule.getModule().getId());
 			submoduleDto.setName(submodule.getName());
-			submoduleDto.setUserId(submodule.getUserId());
+			submoduleDto.setUserId(submodule.getUser().getId());
 			return submoduleDto;
 		}
 		return null;

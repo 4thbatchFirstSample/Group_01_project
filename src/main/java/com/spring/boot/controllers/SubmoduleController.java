@@ -1,5 +1,7 @@
 package com.spring.boot.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.boot.converters.SubmoduleConverters;
 import com.spring.boot.dto.SubmoduleDto;
+import com.spring.boot.entities.Submodule;
 import com.spring.boot.services.SubmoduleService;
 
 @RestController
@@ -57,4 +60,9 @@ public class SubmoduleController {
 
 	}
 
+	@GetMapping(value = "/submodule/module-id/{id}")
+    public List<SubmoduleDto> getByModuleId(@PathVariable Long id){
+		return SubmoduleConverters.submoduleToSubmoduleDto(submoduleService.getAllSubmoduleByModuleId(id));
+		
+	}
 }

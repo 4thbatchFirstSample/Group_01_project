@@ -33,4 +33,16 @@ public class SubmoduleServiceImpl implements SubmoduleService {
 		submoduleRepository.deleteById(id);
 	}
 
+	@Override
+	public List<Submodule> getAllSubmoduleByModuleId(Long id) {
+		return submoduleRepository.findByModuleId(id);
+		
+	}
+
+	@Override
+	public List<Submodule> getAllSubmoduleByUserId(Long id) {
+		return  submoduleRepository.findByUserId(id);
+		
+	}
+
 }

@@ -13,5 +13,9 @@ public interface SubmoduleService {
 	public Submodule findById(Long id);
 
 	public void deleteById(Long id);
+	
+	public List<Submodule> getAllSubmoduleByModuleId(Long id);
+	public List<Submodule> getAllSubmoduleByUserId(Long id);
+	
 
 }

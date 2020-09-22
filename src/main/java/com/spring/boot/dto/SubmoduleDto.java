@@ -2,9 +2,10 @@ package com.spring.boot.dto;
 
 public class SubmoduleDto {
 	private Long id;
+	private String name;
 	private Long moduleId;
 	private Long userId;
-	private String name;
+	
 	public Long getId() {
 		return id;
 	}
