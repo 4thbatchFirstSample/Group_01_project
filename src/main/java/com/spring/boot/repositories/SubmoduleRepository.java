@@ -9,5 +9,4 @@ import com.spring.boot.entities.Submodule;
 
 @Repository
 public interface SubmoduleRepository extends JpaRepository<Submodule,Long > {
-
 }

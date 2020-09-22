@@ -1,33 +1,33 @@
 package com.spring.boot.dto;
 
 public class SubmoduleDto {
-	private Long Id;
-	private  Long ModuleId;
-	private Long UserId;
-	private String Name;
+	private Long id;
+	private Long moduleId;
+	private Long userId;
+	private String name;
 	public Long getId() {
-		return Id;
+		return id;
 	}
 	public void setId(Long id) {
-		Id = id;
+		this.id = id;
 	}
 	public Long getModuleId() {
-		return ModuleId;
+		return moduleId;
 	}
 	public void setModuleId(Long moduleId) {
-		ModuleId = moduleId;
+		this.moduleId = moduleId;
 	}
 	public Long getUserId() {
-		return UserId;
+		return userId;
 	}
 	public void setUserId(Long userId) {
-		UserId = userId;
+		this.userId = userId;
 	}
 	public String getName() {
-		return Name;
+		return name;
 	}
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
-	
+
 }
