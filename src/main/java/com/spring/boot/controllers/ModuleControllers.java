@@ -1,5 +1,7 @@
 package com.spring.boot.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,8 +37,9 @@ public class ModuleControllers {
 	}
 
 	@GetMapping(value = "/module/{id}")
-	public ResponseEntity<Object> getByIdModule(@PathVariable Long id) {	
-		return new ResponseEntity<Object>(ModuleConverter.moduleToModuleDto(moduleService.findById(id)), HttpStatus.FOUND);
+	public ResponseEntity<Object> getByIdModule(@PathVariable Long id) {
+		return new ResponseEntity<Object>(ModuleConverter.moduleToModuleDto(moduleService.findById(id)),
+				HttpStatus.FOUND);
 	}
 
 	@DeleteMapping(value = "/module/{id}")
@@ -49,5 +52,10 @@ public class ModuleControllers {
 	public ResponseEntity<Object> updateModule(@RequestBody ModuleDto moduleDto) {
 		moduleService.updateModule(ModuleConverter.moduleDtotoModule(moduleDto));
 		return new ResponseEntity<Object>("Updated Successfully", HttpStatus.ACCEPTED);
+	}
+
+	@GetMapping(value = "/module/project-id/{id}")
+	public List<ModuleDto> getAllByProjectId(@PathVariable Long id) {
+		return ModuleConverter.moduleToModuleDto(moduleService.getAllModuleByProjectId(id));
 	}
 }

@@ -10,4 +10,5 @@ public interface ModuleService  {
 	public Module findById(Long id);
 	public void deleteById(Long id);
 	public void updateModule(Module module);
+	public List<Module> getAllModuleByProjectId(Long projectId);
 }
