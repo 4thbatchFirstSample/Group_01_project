@@ -14,7 +14,7 @@ public class SubmoduleServiceImpl implements SubmoduleService {
 	private SubmoduleRepository submoduleRepository;
 
 	@Override
-	public void Createproject(Submodule submodule) {
+	public void createProject(Submodule submodule) {
 		submoduleRepository.save(submodule);
 	}
 
@@ -36,13 +36,13 @@ public class SubmoduleServiceImpl implements SubmoduleService {
 	@Override
 	public List<Submodule> getAllSubmoduleByModuleId(Long id) {
 		return submoduleRepository.findByModuleId(id);
-		
+
 	}
 
 	@Override
 	public List<Submodule> getAllSubmoduleByUserId(Long id) {
-		return  submoduleRepository.findByUserId(id);
-		
+		return submoduleRepository.findByUserId(id);
+
 	}
 
 }

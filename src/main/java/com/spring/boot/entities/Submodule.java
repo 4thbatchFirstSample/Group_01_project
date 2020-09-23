@@ -6,53 +6,36 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table
 public class Submodule {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-
-	private Long Id;
-	
-	
-	private String Name;
-	
+	private Long id;
+	private String name;
 	@ManyToOne
-	@JoinColumn(name="moduleId", nullable = false)
+	@JoinColumn(name = "moduleId", nullable = false)
 	private Module module;
-	
 	@ManyToOne
-	@JoinColumn(name="userId",nullable=false)
+	@JoinColumn(name = "userId", nullable = false)
 	private User user;
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Long id) {
-		Id = id;
+		this.id = id;
 	}
 
-	
-
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 
 	public Module getModule() {
@@ -63,4 +46,11 @@ public class Submodule {
 		this.module = module;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 }

@@ -16,7 +16,7 @@ public class SubmoduleConverters {
 	public static Submodule SubmoduleDtoToSubmodule(SubmoduleDto submoduleDto) {
 		Submodule submodule = new Submodule();
 		Module module = new Module();
-    	User user = new User();
+		User user = new User();
 		if (submoduleDto != null) {
 			submodule.setId(submoduleDto.getId());
 			submodule.setName(submoduleDto.getName());
@@ -27,7 +27,6 @@ public class SubmoduleConverters {
 			return submodule;
 		}
 		return null;
-
 	}
 
 	// Submodule to SubmoduleDto list Converter
@@ -37,14 +36,11 @@ public class SubmoduleConverters {
 			for (Submodule submodule : submodulelist) {
 				SubmoduleDto submoduleDto = new SubmoduleDto();
 				submoduleDto.setId(submodule.getId());
-			    submoduleDto.setModuleId(submodule.getModule().getId());
+				submoduleDto.setModuleId(submodule.getModule().getId());
 				submoduleDto.setName(submodule.getName());
 				submoduleDto.setUserId(submodule.getUser().getId());
-				
-
 				listSubmoduleDto.add(submoduleDto);
 			}
-
 			return listSubmoduleDto;
 		}
 		return null;
@@ -54,7 +50,7 @@ public class SubmoduleConverters {
 		SubmoduleDto submoduleDto = new SubmoduleDto();
 		if (submodule != null) {
 			submoduleDto.setId(submodule.getId());
-		    submoduleDto.setModuleId(submodule.getModule().getId());
+			submoduleDto.setModuleId(submodule.getModule().getId());
 			submoduleDto.setName(submodule.getName());
 			submoduleDto.setUserId(submodule.getUser().getId());
 			return submoduleDto;

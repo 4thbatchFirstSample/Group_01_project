@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.boot.converters.SubmoduleConverters;
 import com.spring.boot.dto.SubmoduleDto;
-import com.spring.boot.entities.Submodule;
 import com.spring.boot.services.SubmoduleService;
 
 @RestController
@@ -28,7 +27,7 @@ public class SubmoduleController {
 
 	@PostMapping(value = "/submodule")
 	public ResponseEntity<Object> addSubmodule1(@RequestBody SubmoduleDto submoduleDto) {
-		submoduleService.Createproject(SubmoduleConverters.SubmoduleDtoToSubmodule(submoduleDto));
+		submoduleService.createProject(SubmoduleConverters.SubmoduleDtoToSubmodule(submoduleDto));
 		return new ResponseEntity<Object>("Added successfully", HttpStatus.OK);
 	}
 
@@ -36,33 +35,28 @@ public class SubmoduleController {
 	public ResponseEntity<Object> getAll() {
 		return new ResponseEntity<Object>(SubmoduleConverters.submoduleToSubmoduleDto(submoduleService.getAllList()),
 				HttpStatus.OK);
-
 	}
 
 	@GetMapping(value = "/submodule/{id}")
-	public ResponseEntity<Object> getbyid(@PathVariable Long id) {
+	public ResponseEntity<Object> getById(@PathVariable Long id) {
 		return new ResponseEntity<Object>(SubmoduleConverters.submoduleToSubmoduleDto(submoduleService.findById(id)),
 				HttpStatus.OK);
-
 	}
 
 	@DeleteMapping(value = "/submodule/{id}")
 	public ResponseEntity<Object> Deleteproject(@PathVariable Long id) {
 		submoduleService.deleteById(id);
 		return new ResponseEntity<Object>("Deleted Susseccfully", HttpStatus.OK);
-
 	}
 
 	@PutMapping(value = "/submodule")
 	public ResponseEntity<Object> addSubmodule(@RequestBody SubmoduleDto submoduleDto) {
-		submoduleService.Createproject(SubmoduleConverters.SubmoduleDtoToSubmodule(submoduleDto));
+		submoduleService.createProject(SubmoduleConverters.SubmoduleDtoToSubmodule(submoduleDto));
 		return new ResponseEntity<>("Updated", HttpStatus.CREATED);
-
 	}
 
 	@GetMapping(value = "/submodule/module-id/{id}")
-    public List<SubmoduleDto> getByModuleId(@PathVariable Long id){
+	public List<SubmoduleDto> getByModuleId(@PathVariable Long id) {
 		return SubmoduleConverters.submoduleToSubmoduleDto(submoduleService.getAllSubmoduleByModuleId(id));
-		
 	}
 }

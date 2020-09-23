@@ -6,16 +6,15 @@ import com.spring.boot.entities.Submodule;
 
 public interface SubmoduleService {
 
-	public void Createproject(Submodule submodule);
+	public void createProject(Submodule submodule);
 
 	public List<Submodule> getAllList();
 
 	public Submodule findById(Long id);
 
 	public void deleteById(Long id);
-	
-	public List<Submodule> getAllSubmoduleByModuleId(Long id);
-	public List<Submodule> getAllSubmoduleByUserId(Long id);
-	
 
+	public List<Submodule> getAllSubmoduleByModuleId(Long id);
+
+	public List<Submodule> getAllSubmoduleByUserId(Long id);
 }
