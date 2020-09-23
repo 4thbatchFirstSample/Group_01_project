@@ -15,11 +15,12 @@ public class Project {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
-	private String projecttype;
+	private String projectType;
 	private String status;
 	private String duration;
-	private Date startdate;
-	private Date enddate;
+	private Date startDate;
+	private Date endDate;
+
 	public Long getId() {
 		return id;
 	}
@@ -32,35 +33,49 @@ public class Project {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getProjecttype() {
-		return projecttype;
+
+	
+
+	
+
+	public String getProjectType() {
+		return projectType;
 	}
-	public void setProjecttype(String projecttype) {
-		this.projecttype = projecttype;
+
+	public void setProjectType(String projectType) {
+		this.projectType = projectType;
 	}
+
 	public String getStatus() {
 		return status;
 	}
+
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
 	public String getDuration() {
 		return duration;
 	}
+
 	public void setDuration(String duration) {
 		this.duration = duration;
 	}
-	public Date getStartdate() {
-		return startdate;
+
+	public Date getStartDate() {
+		return startDate;
 	}
-	public void setStartdate(Date startdate) {
-		this.startdate = startdate;
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
-	public Date getEnddate() {
-		return enddate;
+
+	public Date getEndDate() {
+		return endDate;
 	}
-	public void setEnddate(Date enddate) {
-		this.enddate = enddate;
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
 	}
 }
 	

@@ -17,9 +17,9 @@ public class ProjectConverter {
 			project.setName(projectDto.getName());
 			project.setDuration(projectDto.getDuration());
 			project.setStatus(projectDto.getStatus());
-			project.setProjecttype(projectDto.getProjecttype());
-			project.setStartdate(projectDto.getStartdate());
-			project.setEnddate(projectDto.getEnddate());
+			project.setProjectType(projectDto.getProjecttype());
+			project.setStartDate(projectDto.getStartdate());
+			project.setEndDate(projectDto.getEnddate());
 
 			return project;
 		}
@@ -36,9 +36,9 @@ public class ProjectConverter {
 				projectDto.setName(project.getName());
 				projectDto.setDuration(project.getDuration());
 				projectDto.setStatus(project.getStatus());
-				projectDto.setProjecttype(project.getProjecttype());
-				projectDto.setStartdate(project.getStartdate());
-				projectDto.setEnddate(project.getEnddate());
+				projectDto.setProjecttype(project.getProjectType());
+				projectDto.setStartdate(project.getStartDate());
+				projectDto.setEnddate(project.getEndDate());
 
 				listProjectDto.add(projectDto);
 			}
@@ -53,9 +53,9 @@ public class ProjectConverter {
 		projectDto.setName(project.getName());
 		projectDto.setDuration(project.getDuration());
 		projectDto.setStatus(project.getStatus());
-		projectDto.setProjecttype(project.getProjecttype());
-		projectDto.setStartdate(project.getStartdate());
-		projectDto.setEnddate(project.getEnddate());
+		projectDto.setProjecttype(project.getProjectType());
+		projectDto.setStartdate(project.getStartDate());
+		projectDto.setEnddate(project.getEndDate());
 
 		return projectDto;
 	}
