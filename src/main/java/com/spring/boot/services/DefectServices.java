@@ -14,5 +14,6 @@ public interface DefectServices {
 	public void deleteById(Long id);
 
 	public void updateDefect(Defect defect);
-
+	
+	public List<Defect> getAllBySubModuleId(Long submodulId);
 }

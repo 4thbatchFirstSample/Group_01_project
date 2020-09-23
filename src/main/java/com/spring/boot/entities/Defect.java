@@ -1,12 +1,13 @@
 package com.spring.boot.entities;
 
-
 import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 //import javax.persistence.JoinColumn;
 //import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -27,8 +28,18 @@ public class Defect {
 	private String severity;
 	private String priority;
 	private String assignTo;
-	private long subModuleId;
-	
+
+	@ManyToOne
+	@JoinColumn(name = "subModuleId", nullable = false)
+	private Submodule subModule;
+
+	public Submodule getSubModule() {
+		return subModule;
+	}
+
+	public void setSubModule(Submodule subModule) {
+		this.subModule = subModule;
+	}
 
 	public Long getId() {
 		return id;
@@ -117,13 +128,4 @@ public class Defect {
 	public void setAssignTo(String assignTo) {
 		this.assignTo = assignTo;
 	}
-
-	public long getSubModuleId() {
-		return subModuleId;
-	}
-
-	public void setSubModuleId(long subModuleId) {
-		this.subModuleId = subModuleId;
-	}
-
 }

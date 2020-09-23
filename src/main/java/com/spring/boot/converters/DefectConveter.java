@@ -7,13 +7,13 @@ import org.springframework.stereotype.Service;
 
 import com.spring.boot.dto.DefectDto;
 import com.spring.boot.entities.Defect;
-//import com.spring.boot.entities.Project;have to change
+import com.spring.boot.entities.Submodule;
 
 @Service
 public class DefectConveter {
 	public static Defect defectDtoToDefect(DefectDto defectDto) {
 		Defect defect = new Defect();
-		// Project subModule =new Project();//have to change
+		Submodule subModule = new Submodule();
 		if (defectDto != null) {
 			defect.setId(defectDto.getId());
 			defect.setName(defectDto.getName());
@@ -26,7 +26,9 @@ public class DefectConveter {
 			defect.setSeverity(defectDto.getSeverity());
 			defect.setPriority(defectDto.getPriority());
 			defect.setAssignTo(defectDto.getAssignTo());
-			defect.setSubModuleId(defectDto.getSubModuleId());
+			subModule.setId(defectDto.getSubModuleId());
+			defect.setSubModule(subModule);
+
 			return defect;
 		}
 		return null;
@@ -48,13 +50,13 @@ public class DefectConveter {
 				defectDto.setSeverity(defect.getSeverity());
 				defectDto.setPriority(defect.getPriority());
 				defectDto.setAssignTo(defect.getAssignTo());
-				defectDto.setSubModuleId(defect.getSubModuleId());
+				defectDto.setSubModuleId(defect.getSubModule().getId());
+
 				defectDtoList.add(defectDto);
 			}
 			return defectDtoList;
 		}
 		return null;
-
 	}
 
 	public static DefectDto defectToDefectDtoId(Defect defect) {
@@ -71,11 +73,9 @@ public class DefectConveter {
 			defectDto.setSeverity(defect.getSeverity());
 			defectDto.setPriority(defect.getPriority());
 			defectDto.setAssignTo(defect.getAssignTo());
-			defectDto.setSubModuleId(defect.getSubModuleId());
-
+			defectDto.setSubModuleId(defect.getSubModule().getId());
 			return defectDto;
 		}
 		return null;
 	}
-
 }
