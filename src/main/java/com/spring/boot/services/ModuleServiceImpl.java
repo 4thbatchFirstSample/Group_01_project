@@ -41,7 +41,5 @@ public class ModuleServiceImpl implements ModuleService {
 	@Override
 	public List<Module> getAllModuleByProjectId(Long projectId) {
 		return moduleRepository.findByProjectId(projectId);
-	}
-	
+	}	
 }
-

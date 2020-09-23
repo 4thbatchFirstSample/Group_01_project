@@ -20,7 +20,6 @@ public class ModuleConverter {
 			project.setId(moduleDto.getProjectId());
 			module.setProject(project);
 			return module;
-
 		}
 		return null;
 	}
@@ -48,5 +47,4 @@ public class ModuleConverter {
 		moduleDto.setProjectId(module.getProject().getId());
 		return moduleDto;
 	}
-
 }
