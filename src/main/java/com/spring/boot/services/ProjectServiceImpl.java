@@ -14,29 +14,27 @@ public class ProjectServiceImpl implements ProjectService {
 	private ProjectRepository projectRepository;
 
 	@Override
-	public void save(Project project) {
+	public void addProject(Project project) {
 		projectRepository.save(project);
-
 	}
 
 	@Override
-	public List<Project> listData() {
+	public List<Project> getAll() {
 		return projectRepository.findAll();
 	}
 
 	@Override
-	public Project Getbyid(long id) {
-		return projectRepository.findById(id).get();
+	public Project getById(Long id) {
+		return projectRepository.getOne(id);
 	}
 
 	@Override
-	public void update(Project project) {
+	public void updateById(Project project) {
 		projectRepository.save(project);
 	}
 
 	@Override
-	public void delete(long id) {
+	public void deleteById(Long id) {
 		projectRepository.deleteById(id);
-
 	}
 }

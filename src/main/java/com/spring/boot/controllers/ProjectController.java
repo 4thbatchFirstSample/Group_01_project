@@ -25,33 +25,30 @@ public class ProjectController {
 
 	@PostMapping(value = "/project")
 	public ResponseEntity<Object> addData(@RequestBody ProjectDto projectDto) {
-		projectService.save(ProjectConverter.projectDtoToProject(projectDto));
+		projectService.addProject(ProjectConverter.projectDtoToProject(projectDto));
 		return new ResponseEntity<Object>("added successfully", HttpStatus.CREATED);
 	}
 
 	@GetMapping(value = "/project")
 	public ResponseEntity<Object> listdata() {
-		return new ResponseEntity<Object>(ProjectConverter.ProjectToProjectDto(projectService.listData()),
-				HttpStatus.OK);
+		return new ResponseEntity<Object>(ProjectConverter.ProjectToProjectDto(projectService.getAll()), HttpStatus.OK);
 	}
 
 	@GetMapping(value = "/project/{id}")
-	public ResponseEntity<Object> getbyid(@PathVariable long id) {
-		return new ResponseEntity<Object>(ProjectConverter.ProjectToProjectDto(projectService.Getbyid(id)),
+	public ResponseEntity<Object> getbyid(@PathVariable Long id) {
+		return new ResponseEntity<Object>(ProjectConverter.ProjectToProjectDto(projectService.getById(id)),
 				HttpStatus.FOUND);
 	}
 
 	@DeleteMapping(value = "/project/{id}")
-	public ResponseEntity<Object> deletebyid(@PathVariable long id) {
-		projectService.delete(id);
+	public ResponseEntity<Object> deletebyid(@PathVariable Long id) {
+		projectService.deleteById(id);
 		return new ResponseEntity<Object>("deleted successfully", HttpStatus.OK);
-
 	}
 
 	@PutMapping(value = "/project")
 	public ResponseEntity<Object> updateid(@RequestBody ProjectDto projectDto) {
-		projectService.update(ProjectConverter.projectDtoToProject(projectDto));
+		projectService.updateById(ProjectConverter.projectDtoToProject(projectDto));
 		return new ResponseEntity<Object>("updated Successfully", HttpStatus.CREATED);
 	}
-
 }
