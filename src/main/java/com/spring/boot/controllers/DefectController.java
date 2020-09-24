@@ -1,5 +1,7 @@
 package com.spring.boot.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -49,5 +51,10 @@ public class DefectController {
 	public ResponseEntity<Object> updeteByidDefect(@RequestBody DefectDto defectDto) {
 		defectServices.updateDefect(DefectConveter.defectDtoToDefect(defectDto));
 		return new ResponseEntity<Object>("Updated Successfully", HttpStatus.CREATED);
+	}
+
+	@GetMapping(value = "/defect/submoduleId/{id}")
+	public List<DefectDto> getBySubModuleId(@PathVariable Long id) {
+		return DefectConveter.defectToDefectDto(defectServices.getAllBySubModuleId(id));
 	}
 }

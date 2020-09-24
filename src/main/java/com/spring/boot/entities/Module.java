@@ -43,6 +43,4 @@ public class Module {
 	public void setProject(Project project) {
 		this.project = project;
 	}
-	
-
 }

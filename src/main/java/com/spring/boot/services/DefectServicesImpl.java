@@ -16,7 +16,6 @@ public class DefectServicesImpl implements DefectServices {
 	@Override
 	public void addDefect(Defect defect) {
 		defectRepository.save(defect);
-
 	}
 
 	@Override
@@ -32,13 +31,15 @@ public class DefectServicesImpl implements DefectServices {
 	@Override
 	public void deleteById(Long id) {
 		defectRepository.deleteById(id);
-
 	}
 
 	@Override
 	public void updateDefect(Defect defect) {
 		defectRepository.save(defect);
-
 	}
 
+	@Override
+	public List<Defect> getAllBySubModuleId(Long submodulId) {
+		return defectRepository.findBySubModuleId(submodulId);
+	}
 }
