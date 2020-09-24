@@ -9,17 +9,19 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Module")
-public class Module {
+@Table
+public class Submodule {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
-	
 	@ManyToOne
-	@JoinColumn(name="projectId", nullable = false)
-	private Project project;
-	
+	@JoinColumn(name = "moduleId", nullable = false)
+	private Module module;
+	@ManyToOne
+	@JoinColumn(name = "userId", nullable = false)
+	private User user;
+
 	public Long getId() {
 		return id;
 	}
@@ -36,11 +38,19 @@ public class Module {
 		this.name = name;
 	}
 
-	public Project getProject() {
-		return project;
+	public Module getModule() {
+		return module;
 	}
 
-	public void setProject(Project project) {
-		this.project = project;
+	public void setModule(Module module) {
+		this.module = module;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 }

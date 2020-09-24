@@ -38,15 +38,19 @@ public class Project {
 	public void setProjectType(String projectType) {
 		this.projectType = projectType;
 	}
+
 	public String getStatus() {
 		return status;
 	}
+
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
 	public String getDuration() {
 		return duration;
 	}
+
 	public void setDuration(String duration) {
 		this.duration = duration;
 	}
