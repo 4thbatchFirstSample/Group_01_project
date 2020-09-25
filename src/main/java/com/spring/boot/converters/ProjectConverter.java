@@ -17,14 +17,13 @@ public class ProjectConverter {
 			project.setName(projectDto.getName());
 			project.setDuration(projectDto.getDuration());
 			project.setStatus(projectDto.getStatus());
-			project.setProjectType(projectDto.getProjecttype());
-			project.setStartDate(projectDto.getStartdate());
-			project.setEndDate(projectDto.getEnddate());
+			project.setProjectType(projectDto.getProjectType());
+			project.setStartDate(projectDto.getStartDate());
+			project.setEndDate(projectDto.getEndDate());
 
 			return project;
 		}
 		return null;
-
 	}
 
 	public static List<ProjectDto> ProjectToProjectDto(List<Project> projectlist) {
@@ -36,9 +35,9 @@ public class ProjectConverter {
 				projectDto.setName(project.getName());
 				projectDto.setDuration(project.getDuration());
 				projectDto.setStatus(project.getStatus());
-				projectDto.setProjecttype(project.getProjectType());
-				projectDto.setStartdate(project.getStartDate());
-				projectDto.setEnddate(project.getEndDate());
+				projectDto.setProjectType(project.getProjectType());
+				projectDto.setStartDate(project.getStartDate());
+				projectDto.setEndDate(project.getEndDate());
 
 				listProjectDto.add(projectDto);
 			}
@@ -53,11 +52,10 @@ public class ProjectConverter {
 		projectDto.setName(project.getName());
 		projectDto.setDuration(project.getDuration());
 		projectDto.setStatus(project.getStatus());
-		projectDto.setProjecttype(project.getProjectType());
-		projectDto.setStartdate(project.getStartDate());
-		projectDto.setEnddate(project.getEndDate());
+		projectDto.setProjectType(project.getProjectType());
+		projectDto.setStartDate(project.getStartDate());
+		projectDto.setEndDate(project.getEndDate());
 
 		return projectDto;
 	}
-
 }

@@ -5,14 +5,13 @@ import java.util.List;
 import com.spring.boot.entities.Project;
 
 public interface ProjectService {
-	public void save(Project project);
+	public void addProject(Project project);
 
-	List<Project> listData();
+	List<Project> getAll();
 
-	public Project Getbyid(long id);
+	public Project getById(Long id);
 
-	void update(Project design);
+	void updateById(Project design);
 
-	void delete(long id);
-
+	void deleteById(Long id);
 }
