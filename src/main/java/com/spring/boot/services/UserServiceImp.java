@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring.boot.entities.User;
 import com.spring.boot.repositories.UserRepository;
+
 @Service
 
 public class UserServiceImp implements UserService {
@@ -16,7 +17,6 @@ public class UserServiceImp implements UserService {
 	@Override
 	public void addUser(User user) {
 		userRepository.save(user);
-
 	}
 
 	@Override
@@ -27,14 +27,11 @@ public class UserServiceImp implements UserService {
 	@Override
 	public void updateById(User user) {
 		userRepository.save(user);
-
 	}
 
-	
 	@Override
 	public void deleteById(long id) {
 		userRepository.deleteById(id);
-
 	}
 
 	@Override
