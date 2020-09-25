@@ -16,14 +16,19 @@ public class SubmoduleConverters {
 	public static Submodule SubmoduleDtoToSubmodule(SubmoduleDto submoduleDto) {
 		Submodule submodule = new Submodule();
 		Module module = new Module();
-		User user = new User();
+
 		if (submoduleDto != null) {
 			submodule.setId(submoduleDto.getId());
 			submodule.setName(submoduleDto.getName());
 			module.setId(submoduleDto.getModuleId());
-			user.setId(submoduleDto.getUserId());
 			submodule.setModule(module);
-			submodule.setUser(user);
+			List<User> userList = new ArrayList<>();
+			for (Long userId : submoduleDto.getUserId()) {
+			     User user = new User();
+				user.setId(userId);
+				userList.add(user);
+			}
+			submodule.setUsers(userList);
 			return submodule;
 		}
 		return null;
@@ -35,10 +40,14 @@ public class SubmoduleConverters {
 		if (submodulelist != null) {
 			for (Submodule submodule : submodulelist) {
 				SubmoduleDto submoduleDto = new SubmoduleDto();
+				List<Long>userIdList = new ArrayList<>();
 				submoduleDto.setId(submodule.getId());
 				submoduleDto.setModuleId(submodule.getModule().getId());
 				submoduleDto.setName(submodule.getName());
-				submoduleDto.setUserId(submodule.getUser().getId());
+            for (User user :submodule.getUsers()) {
+            	userIdList.add(user.getId());
+            	submoduleDto.setUserId(userIdList);
+            }
 				listSubmoduleDto.add(submoduleDto);
 			}
 			return listSubmoduleDto;
@@ -52,7 +61,12 @@ public class SubmoduleConverters {
 			submoduleDto.setId(submodule.getId());
 			submoduleDto.setModuleId(submodule.getModule().getId());
 			submoduleDto.setName(submodule.getName());
-			submoduleDto.setUserId(submodule.getUser().getId());
+			List<Long>userIdList = new ArrayList<>();
+			for (User user :submodule.getUsers()) {
+            	userIdList.add(user.getId());
+            	submoduleDto.setUserId(userIdList);
+            }
+            
 			return submoduleDto;
 		}
 		return null;

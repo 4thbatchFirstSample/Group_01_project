@@ -9,7 +9,5 @@ import com.spring.boot.entities.Submodule;
 @Repository
 public interface SubmoduleRepository extends JpaRepository<Submodule, Long> {
 	public List<Submodule> findByModuleId(Long moduleId);
-
-	public List<Submodule> findByUserId(Long userId);
-
+	public List<Submodule> findByUsersId(Long userId);
 }
