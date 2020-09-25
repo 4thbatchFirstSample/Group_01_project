@@ -41,8 +41,9 @@ public class SubmoduleServiceImpl implements SubmoduleService {
 
 	@Override
 	public List<Submodule> getAllSubmoduleByUserId(Long id) {
-		return submoduleRepository.findByUserId(id);
-
+		return submoduleRepository.findByUsersId(id);
+		
 	}
+
 
 }

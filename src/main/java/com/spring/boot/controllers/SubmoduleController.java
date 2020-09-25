@@ -59,4 +59,8 @@ public class SubmoduleController {
 	public List<SubmoduleDto> getByModuleId(@PathVariable Long id) {
 		return SubmoduleConverters.submoduleToSubmoduleDto(submoduleService.getAllSubmoduleByModuleId(id));
 	}
+	@GetMapping(value = "/submodule/user-id/{id}")
+	public List<SubmoduleDto> getByUserId(@PathVariable Long id){
+		return SubmoduleConverters.submoduleToSubmoduleDto(submoduleService.getAllSubmoduleByUserId(id));
+	}
 }
